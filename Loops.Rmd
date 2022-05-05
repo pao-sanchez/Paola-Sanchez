@@ -25,4 +25,7 @@ while (correctAnswer == FALSE) {
 }
 ```
 
+*** This is a guess Taylor Swift's age, game using while loop
 
+Result:
+<img width="300" alt="Taylor's age" src="https://user-images.githubusercontent.com/98184898/166987205-ee561930-46ed-4ade-8e6a-cccf1651b93d.png">
