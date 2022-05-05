@@ -3,7 +3,6 @@ title: "Bar Chart"
 output: html_notebook
 ---
 
-
 BAR CHART OF THE NUMBER OF DEATHS IN JAPAN DURING COVID 
 
 ```{r}
@@ -28,4 +27,12 @@ barplot(japanDailyData, xlab = "Date", ylab = "Daily deaths")
 title ("Japan's Daily Deaths")
 ```
 
+*** This is an example of a Bar chart for the number of deaths in Japan that occured during Covid, both cumulative and daily
 
+Result:
+
+Cumulative:
+<img width="663" alt="Cumulative" src="https://user-images.githubusercontent.com/98184898/166991365-25d3c669-6a1d-48d0-8929-18d6cc9b84c5.png">
+
+Daily:
+<img width="685" alt="Daily" src="https://user-images.githubusercontent.com/98184898/166991487-e5aeb949-97e4-40ac-ae59-410aa2abbde0.png">
