@@ -1,0 +1,23 @@
+---
+title: "Variables, Operators, Types, Expressions"
+output: html_notebook
+---
+
+
+
+COMPOUND INTEREST
+
+```{r}
+# INPUT
+principal = 10000
+rate = 0.15
+compoundings = 4
+time = 35
+
+# PROCESSING
+amount = principal * (1+ (rate/compoundings))^ (compoundings * time)
+
+# OUTPUT
+print (amount)
+```
+
