@@ -73,3 +73,8 @@ server <- function(input, output, session) {
 }
 
 shinyApp(ui = ui, server = server)
+
+**** This an example of a dashboard demonstrating stock prices from both AMD and HPE
+
+Result: 
+<img width="1440" alt="Dashboard" src="https://user-images.githubusercontent.com/98184898/166994075-6812bf4e-b29c-4bf8-9add-8a9790eb885e.png">
