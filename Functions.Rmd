@@ -23,3 +23,7 @@ print (ans)
 
 ```
 
+*** This example calculates present value using functions
+
+Result:
+<img width="121" alt="Present Value" src="https://user-images.githubusercontent.com/98184898/166987703-b036d5ba-0ae6-4f2c-ae9b-11affc2ce463.png">
