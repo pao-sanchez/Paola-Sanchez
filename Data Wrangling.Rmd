@@ -1,0 +1,39 @@
+---
+title: "Data Wrangling"
+output: html_notebook
+---
+
+HPE STOCK PRICES 2021
+
+
+```{r}
+dfRaw = read.csv("HPE.csv")
+
+dateColumnName = "Date"
+closeColumnName = "Close"
+volumeColumnName = "Volume"
+columns = c(dateColumnName, closeColumnName, volumeColumnName)
+
+startDate = as.Date("1/1/21", format="%m/%d/%y")
+endDate = as.Date("12/31/21", format="%m/%d/%y")
+rows = which(as.Date(dfRaw$Date, format="%m/%d/%y") >= startDate & as.Date(dfRaw$Date, format="%m/%d/%y") <= endDate)
+
+dfWrangle = dfRaw [rows,columns]
+filename = "HPE-2021.csv"
+write.csv(dfWrangle, filename, row.names=F, fileEncoding = "UTF-8")
+
+
+colnames(dfWrangle) = gsub("Date", "date", colnames(dfWrangle))
+colnames(dfWrangle) = gsub("Close", "close", colnames(dfWrangle))
+colnames(dfWrangle) = gsub("Volume", "volume", colnames(dfWrangle))
+write.csv(dfWrangle, filename, row.names = F, fileEncoding = "UTF-8")
+
+
+dateNumbers = 1:length (dfWrangle$date)
+plot (dateNumbers, dfWrangle$close, type="l", col="blue", xaxt="n",
+      xlab = "Date", ylab = "Stock Prices")
+axis(side=1, 1:length(dateNumbers), dfWrangle$date, las=1)
+title("HPE Stock Prices 2021")
+```
+
+

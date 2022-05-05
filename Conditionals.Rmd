@@ -1,0 +1,29 @@
+---
+title: "Conditionals"
+output: html_notebook
+---
+
+
+AMORTIZED LOAN PAYMENT
+
+```{r}
+# INPUT
+amountBorrowed = 250000
+periodicInterestRate = 0.004167
+numberOfPayments = 360
+
+# PROCESSING
+amortizedLoanPayment = (amountBorrowed* periodicInterestRate) / (1-(1+ periodicInterestRate)^-numberOfPayments)
+
+# OUTPUT
+print (amortizedLoanPayment)
+
+if (amortizedLoanPayment<1000) {
+  print ("very affordable")
+} else if (amortizedLoanPayment>=1000 && amortizedLoanPayment<=2000) {
+  print ("affordable")
+} else if (amortizedLoanPayment>2000) {
+  print ("expensive")
+}
+```
+

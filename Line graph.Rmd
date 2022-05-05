@@ -1,0 +1,32 @@
+---
+title: "Line graphs"
+output: html_notebook
+---
+
+LINE GRAPH: ADM STOCK PRICES 2020
+
+```{r}
+dfRaw = read.csv("AMD.csv")
+
+dateColumnName = "Date"
+closeColumnName = "Close"
+volumeColumnName = "Volume"
+columns = c(dateColumnName, closeColumnName, volumeColumnName)
+startDate = as.Date("1/1/20", format="%m/%d/%y")
+endDate = as.Date("12/31/20", format="%m/%d/%y")
+rows = which(as.Date(dfRaw$Date, format="%m/%d/%y") >= startDate & as.Date(dfRaw$Date, format="%m/%d/%y") <= endDate)
+dfWrangle = dfRaw [rows,columns]
+filename = "AMD-2020.csv"
+write.csv(dfWrangle, filename, row.names=F, fileEncoding = "UTF-8")
+head(dfWrangle)
+
+dateNumbers = 1:length (dfWrangle$Date)
+plot (dateNumbers, dfWrangle$Close, type="l", col="blue", xaxt="n",
+      xlab = "Date", ylab = "Stock Prices", cex.lab = 1.3, col.lab = "darkblue")
+axis(side=1, 1:length(dateNumbers), dfWrangle$Date, las=1)
+title("ADM Stock Prices 2020",
+      cex.main = 1.5, col.main = "navy"
+)
+```
+
+

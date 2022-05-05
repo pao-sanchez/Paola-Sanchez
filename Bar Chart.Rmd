@@ -1,0 +1,31 @@
+---
+title: "Bar Chart"
+output: html_notebook
+---
+
+
+BAR CHART OF THE NUMBER OF DEATHS IN JAPAN DURING COVID 
+
+```{r}
+dataFrame = read.csv ("time_series_covid19_confirmed_global.csv")
+country = "Japan"
+japanRow = which (dataFrame$Country.Region==country)
+japanAllData = dataFrame [japanRow,]
+startRow = 1
+startColumn = 5
+endColumn = ncol (japanAllData)
+japanData = japanAllData [startRow, startColumn:endColumn]
+japanDataNumeric = as.numeric (japanData[1,])
+names (japanDataNumeric) = colnames(japanData)
+names(japanDataNumeric) = gsub("X", "", names(japanDataNumeric))
+barplot(japanDataNumeric, xlab = "Date", ylab = "# of deaths")
+title ("Japan's Deaths")
+
+japanDailyData = sapply (2:length (japanDataNumeric), function (i) {
+  japanDataNumeric[i]-japanDataNumeric[i-1]
+})
+barplot(japanDailyData, xlab = "Date", ylab = "Daily deaths")
+title ("Japan's Daily Deaths")
+```
+
+

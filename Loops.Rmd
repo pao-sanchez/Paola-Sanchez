@@ -1,0 +1,28 @@
+---
+title: "Loops"
+output: html_notebook
+---
+
+WHILE LOOP
+
+```{r}
+correctAnswer = FALSE
+print ("The Guess Taylor Swift's age")
+while (correctAnswer == FALSE) {
+  answer = readline (prompt="Guess Taylor Swift's age");
+  answerAsNumber = as.numeric(answer)
+  if (answerAsNumber == 32) {
+    cat("\n\nRIGHT!!! How'd you guess?\n")
+    cat("GAME OVER")
+    correctAnswer = TRUE
+  } else if (answerAsNumber<32) {
+    cat ("Too low\n")
+    cat ("Try again\n\n")
+  } else {
+    cat ("Too high\n")
+    cat ("Try again\n\n")
+  }
+}
+```
+
+

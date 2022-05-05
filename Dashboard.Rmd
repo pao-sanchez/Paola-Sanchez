@@ -1,0 +1,75 @@
+---
+title: "Dashboard"
+output: html_notebook
+---
+
+DASHBOARD
+
+library(shiny)
+
+ui <- fluidPage(
+
+    titlePanel("Stock Visualizer"),
+
+    sidebarLayout(
+        sidebarPanel(
+          selectInput("seDataSet", "Data Set:", NULL),
+          dateRangeInput("seDateRange", "Select Dates:", startview="year"),
+          radioButtons("rbSymbols", "Point Shape:", 
+                       choiceNames = c("square", "circle", "triangle", "diamond"),
+                       choiceValues = c(15, 16, 17, 18)),
+          radioButtons("rbLineType", "Line Type:", 
+                       choices = c("blank", "solid", "dashed", "dotted"))
+        ),
+
+        mainPanel(
+           plotOutput("stockPlot")
+        )
+    )
+)
+
+server <- function(input, output, session) {
+  observeEvent(input$seDataSet, {
+    file = input$seDataSet
+    if (file=="") {
+      folder = "data"
+      updateSelectInput(session, "seDataSet", choices=list.files(folder))
+    } else {
+      folder = "data"
+      fullPath = sprintf("%s/%s", folder, file)
+      df = read.csv(fullPath, encoding = "UTF-8")
+      nDates = length(df$Date)
+      dfDate1 = df$Date[1]
+      dfDateN = df$Date[nDates]
+      updateDateRangeInput(session, "seDateRange", start=dfDate1, end=dfDateN, min=dfDate1, max=dfDateN)
+    }
+  })
+
+    output$stockPlot <- renderPlot({
+      file = input$seDataSet
+      if (file == '') return()
+      
+      folder = "data"
+      fullPath = sprintf("%s/%s", folder, file)
+      df = read.csv(fullPath, encoding = "UTF-8")
+      
+      startDate = input$seDateRange[1]
+      endDate = input$seDateRange[2]
+      if (startDate>=endDate) return()
+      wrangleRows = which (as.Date(df$Date) >= startDate & as.Date(df$Date) <= endDate)
+      dfWrangle = df[wrangleRows,]
+      
+      plot(1:length(dfWrangle$Date), dfWrangle$Close,xlab = "", ylab = "", col = "lightgreen", cex = 1.75,
+           pch = as.numeric(input$rbSymbols))
+      lines(1:length(dfWrangle$Date), dfWrangle$Close, col = "lightgreen",
+            lty = input$rbLineType)
+      title(
+        "Stock Visualizer", 
+        xlab = "Date", ylab = "Close", 
+        cex.main = 2, cex.lab = 1.5,
+        col.main = "maroon", col.lab = "navy"
+      )
+    })
+}
+
+shinyApp(ui = ui, server = server)

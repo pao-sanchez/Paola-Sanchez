@@ -1,0 +1,25 @@
+---
+title: "Functions"
+output: html_notebook
+---
+
+PRESENT VALUE
+
+```{r}
+# PROCESSING
+calcPresentValue = function (futureValue, rateOfReturn, time) {
+  presentValue = futureValue / (1+rateOfReturn)^time
+  return (presentValue)
+}
+
+# INPUT
+ans = calcPresentValue (10057, 0.15, 5)
+# futureValue = 10057
+# rateOfReturn = 0.15
+# time = 5
+
+# OUTPUT
+print (ans)
+
+```
+
