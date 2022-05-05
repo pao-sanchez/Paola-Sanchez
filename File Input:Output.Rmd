@@ -3,7 +3,6 @@ title: "File Input/Output"
 output: html_notebook
 ---
 
-
 NET INCOME
 
 ```{r}
@@ -25,3 +24,7 @@ netIncomeSolutionDataFrame = data.frame(
 write.csv(netIncomeSolutionDataFrame, "data/Sanchez-Paola-Net-Income-Solution.csv")
 ```
 
+*** This is an example using File output/input (File O/I) and data frames
+
+
+<img width="180" alt="Screen Shot 2022-05-05 at 12 02 15 PM" src="https://user-images.githubusercontent.com/98184898/166984987-d1828ace-73e2-4acc-8b76-cf623503c840.png">
