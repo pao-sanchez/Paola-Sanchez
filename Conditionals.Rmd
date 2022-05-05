@@ -3,7 +3,6 @@ title: "Conditionals"
 output: html_notebook
 ---
 
-
 AMORTIZED LOAN PAYMENT
 
 ```{r}
@@ -27,3 +26,6 @@ if (amortizedLoanPayment<1000) {
 }
 ```
 
+*** This example calculates amortized loan payment using conditionals
+
+<img width="157" alt="Amortized Loan Payment" src="https://user-images.githubusercontent.com/98184898/166985568-70e4d557-3d82-4bf1-a251-fdbf293ab3c8.png">
