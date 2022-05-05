@@ -24,7 +24,7 @@ netIncomeSolutionDataFrame = data.frame(
 write.csv(netIncomeSolutionDataFrame, "data/Sanchez-Paola-Net-Income-Solution.csv")
 ```
 
-*** This is an example using File output/input (File O/I) and data frames
+*** This is an example using File output/input (File O/I) and data frames to calculate net income
 
-
-<img width="180" alt="Screen Shot 2022-05-05 at 12 02 15 PM" src="https://user-images.githubusercontent.com/98184898/166984987-d1828ace-73e2-4acc-8b76-cf623503c840.png">
+Result:
+<img width="192" alt="Net Income" src="https://user-images.githubusercontent.com/98184898/166986812-bfabea60-80e8-464d-8497-c008ead18aad.png">
