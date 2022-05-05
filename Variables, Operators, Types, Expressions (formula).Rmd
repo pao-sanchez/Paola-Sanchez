@@ -3,8 +3,6 @@ title: "Variables, Operators, Types, Expressions"
 output: html_notebook
 ---
 
-
-
 COMPOUND INTEREST
 
 ```{r}
@@ -20,4 +18,3 @@ amount = principal * (1+ (rate/compoundings))^ (compoundings * time)
 # OUTPUT
 print (amount)
 ```
-
