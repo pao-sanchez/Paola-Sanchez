@@ -29,4 +29,7 @@ title("ADM Stock Prices 2020",
 )
 ```
 
+*** This is an example of a line graph from AMD stock prices in 2020
 
+Result:
+<img width="681" alt="AMD" src="https://user-images.githubusercontent.com/98184898/166992657-98e5419b-e82c-45ef-8617-6d8152d3e16f.png">
